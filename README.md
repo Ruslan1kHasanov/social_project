@@ -32,7 +32,7 @@ FORMAT: 1A
                 }
             }
 
-+ Response 301 (application/json)
++ Response 200
 
     + Headers
 
@@ -40,8 +40,38 @@ FORMAT: 1A
             Content+Type: application/json; charset=utf+8
             Cookie: token=token_example
 
+    + Body
 
-+ Response 401 (application/json)
+            {
+                "id": 21,
+                "email": "teacher21@mail.ru",
+                "name": "Potapov Valentin Vladimirovich"
+            }
+
+    + Schema
+
+            {
+                "type": "object",
+                "properties": {
+                    "message": {
+                        "type": "string"
+                    },
+                    "email": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    }
+                }
+            }
+
+
++ Response 401
+
+    + Headers
+
+            Connection: keep+alive
+            Content+Type: application/json; charset=utf+8
 
     + Body
 
@@ -99,12 +129,12 @@ FORMAT: 1A
             }
 
     + Schema
-
             {
                 "type": "object",
                     "properties": {
                         "message": {
-                        "type": "string"
+                            "type": "string"
+                        }
                     }
                 }
             }
@@ -119,14 +149,15 @@ FORMAT: 1A
 
     + Schema
 
-        {
-            "type": "object",
-                "properties": {
-                    "message": {
-                    "type": "string"
+            {
+                "type": "object",
+                    "properties": {
+                        "message": {
+                            "type": "string"
+                        }
+                    }
                 }
             }
-        }
 
 # Setting a new password [/remind-password]
 
@@ -172,7 +203,8 @@ FORMAT: 1A
                 "type": "object",
                     "properties": {
                         "message": {
-                        "type": "string"
+                            "type": "string"
+                        }
                     }
                 }
             }
@@ -187,14 +219,15 @@ FORMAT: 1A
 
     + Schema
 
-        {
-            "type": "object",
-                "properties": {
-                    "message": {
-                    "type": "string"
+            {
+                "type": "object",
+                    "properties": {
+                        "message": {
+                            "type": "string"
+                        }
+                    }
                 }
             }
-        }
 
 # Группы [/groups]
 
@@ -260,14 +293,15 @@ FORMAT: 1A
 
     + Schema
 
-        {
-            "type": "object",
-                "properties": {
-                    "message": {
-                    "type": "string"
+            {
+                "type": "object",
+                    "properties": {
+                        "message": {
+                            "type": "string"
+                        }
+                    }
                 }
             }
-        }
 
 + Response 401
 
@@ -284,18 +318,19 @@ FORMAT: 1A
 
     + Schema
 
-        {
-            "type": "object",
-                "properties": {
-                    "message": {
-                    "type": "string"
+            {
+                "type": "object",
+                    "properties": {
+                        "message": {
+                            "type": "string"
+                        }
+                    }
                 }
             }
-        }
 
 # Информация о группе [/groups/{id}]
 
-## Get groups [GET]
+## Get group data [GET]
 
 Получение информации о выбранной группе
 
@@ -315,7 +350,7 @@ FORMAT: 1A
             {
                 "id": 1,
                 "name": "MT-402",
-                "fuculty_name": "Математический факультет"б
+                "fuculty_name": "Математический факультет",
                 "students": [
                     {
                         "id": 234,
@@ -346,8 +381,8 @@ FORMAT: 1A
                     "name": {
                         "type": "string"
                     },
-                    "rating": {
-                        "type": "number"
+                    "fuculty_name": {
+                        "type": "string"
                     },
                     "students": {
                         "type": "array",
@@ -382,7 +417,8 @@ FORMAT: 1A
             "type": "object",
                 "properties": {
                     "message": {
-                    "type": "string"
+                        "type": "string"
+                    }
                 }
             }
         }
@@ -402,11 +438,306 @@ FORMAT: 1A
 
     + Schema
 
+            {
+                "type": "object",
+                    "properties": {
+                        "message": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+
+# Информация о конкретном студенте [/students/{id}]
+
+## Get student data [GET]
+
+Получение информации о выбранном студенте
+
++ Parameters
+
+    + id: 234 (required) - Уникальный идентификатор студента
+
++ Response 200
+
+    + Headers
+
+            Connection: keep+alive
+            Content+Type: application/json; charset=utf+8;
+
+    + Body
+
+            {
+                "id": 1,
+                "name": "Ruslan Khasanov",
+                "email": "example@mail.ru",
+                "fuculty_name": "Математический факультет",
+                "rating": 99
+            }
+
+    + Schema
+
+            {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "number"
+                    },
+                    "email": {
+                        "type": "string"
+                    }
+                    "name": {
+                        "type": "string"
+                    },
+                    "fuculty_name": {
+                        "type": "string"
+                    },
+                    "rating": {
+                        "type": "number"
+                    }
+                }
+            }
+
++ Response 400
+
+    + Headers
+
+            Connection: keep+alive
+            Content+Type: application/json; charset=utf+8;
+
+    + Body
+
+            {
+                "message": "Error"
+            }
+
+    + Schema
+
         {
             "type": "object",
                 "properties": {
                     "message": {
-                    "type": "string"
+                        "type": "string"
+                    }
                 }
             }
         }
+
++ Response 401
+
+    + Headers
+
+            Connection: keep+alive
+            Content+Type: application/json; charset=utf+8;
+
+    + Body
+
+            {
+                "message": "Auth Error"
+            }
+
+    + Schema
+
+            {
+                "type": "object",
+                    "properties": {
+                        "message": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+
+## Get groups [PUT]
+
+Изменение рейтинга студента
+
++ Request (application/json)
+
+    + Body
+
+            {
+                "id": 234,
+                "total_sum": 34,
+                "is_positive": false,
+                "description": "Some description",
+            }
+
+    + Schema
+
+            {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "number"
+                    }
+                    "total_sum": {
+                        "type": "number"
+                    }
+                    "is_positive": {
+                        "type": "bool"
+                    }
+                    "description": {
+                        "type": "string"
+                    }
+                }
+            }
+
++ Response 200
+
+    + Headers
+
+        Connection: keep+alive
+        Content+Type: application/json; charset=utf+8;
+
+    + Body
+
+            {
+                "message": "Done",
+                "id_change": 4565,
+                "date_of_chage": "23-10-2023",
+                "description": "Some description",
+                "new_rating": 200
+            }
+
+    + Schema
+
+        {
+            "type": "object",
+                "properties": {
+                    "message": {
+                        "type": "string"
+                    },
+                    "id_change": {
+                        "type": "number"
+                    },
+                    "date_of_chage": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "new_rating": {
+                        "type": "number"
+                    },
+                }
+            }
+        }
+
++ Response 400
+
+    + Headers
+
+            Connection: keep+alive
+            Content+Type: application/json; charset=utf+8;
+
+    + Body
+
+            {
+                "message": "Error"
+            }
+
+    + Schema
+
+        {
+            "type": "object",
+                "properties": {
+                    "message": {
+                        "type": "string"
+                    }
+                }
+            }
+        }
+
++ Response 401
+
+    + Headers
+
+            Connection: keep+alive
+            Content+Type: application/json; charset=utf+8;
+
+    + Body
+
+            {
+                "message": "Auth Error"
+            }
+
+    + Schema
+
+            {
+                "type": "object",
+                    "properties": {
+                        "message": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+
+# История рейтинга студента [/students/{id}/history]
+
+## Get student data [GET]
+
+Получение истории понижения/повышения рейтинга студента
+
++ Parameters
+
+    + id: 234 (required) - Уникальный идентификатор студента
+
++ Response 200
+
+    + Headers
+
+            Connection: keep+alive
+            Content+Type: application/json; charset=utf+8;
+
+    + Body
+
+            {
+                "student_id": 234,
+                "history": [
+                    {
+                        "id_change": 4565,
+                        "date_of_chage": "23-10-2023",
+                        "description": "Some description",
+                        "rating": 200
+                    },
+                    {
+                        "id_change": 5667,
+                        "date_of_chage": "26-10-2023",
+                        "description": "Save cat",
+                        "rating": 560
+                    }
+                ]
+            }
+
+    + Schema
+
+            {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "number"
+                    },
+                    "history": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "id_change": {
+                                    "type": "number"
+                                },
+                                "date_of_chage": {
+                                    "type": "string"
+                                },
+                                "description": {
+                                    "type": "string"
+                                },
+                                "rating": {
+                                    "type": "number"
+                                },
+                            }
+                        }
+                    }
+                }
+            }
