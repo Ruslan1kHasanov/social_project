@@ -11,34 +11,34 @@ FORMAT: 1A
 
 + Request (application/json)
 
-Body
+    + Body
 
-    {
-        "email": "Ruslan",
-        "password": "qwerty123"
-    }
-
-Schema
-
-    {
-        "type": "object",
-        "properties": {
-            "email": {
-                "type": "string"
-            },
-            "password": {
-                "type": "string"
+            {
+                "email": "Ruslan",
+                "password": "qwerty123"
             }
-        }
-    }
+
+    + Schema
+
+            {
+                "type": "object",
+                "properties": {
+                    "email": {
+                        "type": "string"
+                    },
+                    "password": {
+                        "type": "string"
+                    }
+                }
+            }
 
 + Response 301 (application/json)
 
     + Headers
 
-        Connection: keep-alive
-        Content-Type: application/json; charset=utf-8
-        Cookie: token=token_example
+            Connection: keep-alive
+            Content-Type: application/json; charset=utf-8
+            Cookie: token=token_example
 
 
 + Response 401 (application/json)
