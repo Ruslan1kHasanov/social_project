@@ -11,26 +11,26 @@ FORMAT: 1A
 
 + Request (application/json)
 
-    + Body
+Body
 
     {
         "email": "Ruslan",
         "password": "qwerty123"
     }
 
-    + Schema
+Schema
 
-        {
-            "type": "object",
-            "properties": {
-                "email": {
-                    "type": "string"
-                },
-                "password": {
-                    "type": "string"
-                }
+    {
+        "type": "object",
+        "properties": {
+            "email": {
+                "type": "string"
+            },
+            "password": {
+                "type": "string"
             }
         }
+    }
 
 + Response 301 (application/json)
 
