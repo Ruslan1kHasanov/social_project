@@ -602,27 +602,27 @@ FORMAT: 1A
 
     + Schema
 
-        {
-            "type": "object",
-                "properties": {
-                    "message": {
-                        "type": "string"
-                    },
-                    "id_change": {
-                        "type": "number"
-                    },
-                    "date_of_chage": {
-                        "type": "string"
-                    },
-                    "description": {
-                        "type": "string"
-                    },
-                    "new_rating": {
-                        "type": "number"
-                    },
+            {
+                "type": "object",
+                    "properties": {
+                        "message": {
+                            "type": "string"
+                        },
+                        "id_change": {
+                            "type": "number"
+                        },
+                        "date_of_chage": {
+                            "type": "string"
+                        },
+                        "description": {
+                            "type": "string"
+                        },
+                        "new_rating": {
+                            "type": "number"
+                        },
+                    }
                 }
             }
-        }
 
 + Response 400
 
@@ -639,15 +639,15 @@ FORMAT: 1A
 
     + Schema
 
-        {
-            "type": "object",
-                "properties": {
-                    "message": {
-                        "type": "string"
+            {
+                "type": "object",
+                    "properties": {
+                        "message": {
+                            "type": "string"
+                        }
                     }
                 }
             }
-        }
 
 + Response 401
 
