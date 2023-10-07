@@ -13,10 +13,10 @@ FORMAT: 1A
 
     + Body
 
-        {
-            "email": "Ruslan",
-            "password": "qwerty123"
-        }
+    {
+        "email": "Ruslan",
+        "password": "qwerty123"
+    }
 
     + Schema
 
