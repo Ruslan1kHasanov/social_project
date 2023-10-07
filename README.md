@@ -43,19 +43,19 @@ Schema
 
 + Response 401 (application/json)
 
-+ Body
+    + Body
 
-    {
-        "message": "Wrong email or password!"
-    }
+            {
+                "message": "Wrong email or password!"
+            }
 
-+ Schema
+    + Schema
 
-    {
-        "type": "object",
-        "properties": {
-            "message": {
-                "type": "string"
+        {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string"
+                }
             }
         }
-    }
