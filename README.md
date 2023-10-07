@@ -1,7 +1,7 @@
 FORMAT: 1A
 
 # social_project Schema
-Это описание 
+Это описание. Base URL добавим потом
 
 # Authorization [/auth]
 
