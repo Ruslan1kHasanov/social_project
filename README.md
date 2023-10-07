@@ -1,13 +1,13 @@
 FORMAT: 1A
 
 # social_project Schema
-Это тестовое описание
+Это описание 
 
 # Authorization [/auth]
 
 Конечная точка для авторизации пользователя
 
-## Do auth [POST]
+## Sign up [POST]
 
 + Request (application/json)
 
@@ -36,8 +36,8 @@ FORMAT: 1A
 
     + Headers
 
-            Connection: keep-alive
-            Content-Type: application/json; charset=utf-8
+            Connection: keep+alive
+            Content+Type: application/json; charset=utf+8
             Cookie: token=token_example
 
 
@@ -51,10 +51,78 @@ FORMAT: 1A
 
     + Schema
 
+            {
+                "type": "object",
+                "properties": {
+                    "message": {
+                        "type": "string"
+                    }
+                }
+            }
+
+# Setting a new password
+
+Установка нового пароля пользователем
+
+## Send request [POST]
+
++ Request (application/json)
+
+    + Body
+
+            {
+                "password": "qwerty123"
+            }
+
+    + Schema
+
+            {
+                "type": "object",
+                "properties": {
+                    "password": {
+                        "type": "string"
+                    }
+                }
+            }
+
++ Response 301
+
+    + Headers
+
+            Connection: keep+alive
+            Content+Type: application/json; charset=utf+8;
+
+    + Body
+
+            {
+                "message": "New password setted"
+            }
+
+    + Schema
+
+            {
+                "type": "object",
+                    "properties": {
+                        "message": {
+                        "type": "string"
+                    }
+                }
+            }
+
+    + Response 400
+
+    + Body
+
+            {
+                "message": "Error"
+            }
+
+    + Schema
+
         {
             "type": "object",
-            "properties": {
-                "message": {
+                "properties": {
+                    "message": {
                     "type": "string"
                 }
             }
