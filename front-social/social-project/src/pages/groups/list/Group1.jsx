@@ -1,5 +1,5 @@
 import React from 'react'
-import './index.scss'
+import '../index.scss'
 import {
   AppstoreOutlined,
   BarChartOutlined,
@@ -11,7 +11,6 @@ import {
   VideoCameraOutlined,
 } from '@ant-design/icons'
 import { useNavigate } from 'react-router-dom'
-import { Navigate } from 'react-router-dom'
 import { Layout, Menu, theme } from 'antd'
 import { Avatar, List } from 'antd'
 
@@ -19,16 +18,28 @@ const { Header, Content, Footer, Sider } = Layout
 
 const data = [
   {
-    title: 'МТ-401',
+    title: 'Данилов Дмитрий',
   },
   {
-    title: 'МТ-402',
+    title: 'Лавров Иван',
   },
   {
-    title: 'МТ-403',
+    title: 'Спиридонова Василиса',
   },
   {
-    title: 'МТ-404',
+    title: 'Мещеряков Тимофей',
+  },
+  {
+    title: 'Петров Роман',
+  },
+  {
+    title: 'Дроздов Григорий',
+  },
+  {
+    title: 'Шубина Сара',
+  },
+  {
+    title: 'Осипов Матвей',
   },
 ]
 
@@ -47,7 +58,7 @@ const items = [
   label: `nav ${index + 1}`,
 }))
 
-const GroupsPage = () => {
+const Group1 = () => {
   return (
     <>
       <Layout>
@@ -75,16 +86,23 @@ const GroupsPage = () => {
           </Sider>
           <Content className="content">
             <List
-              className="list"
               itemLayout="horizontal"
               dataSource={data}
               renderItem={(item, index) => (
-                <List.Item>
+                <List.Item
+                  actions={[
+                    <a key="list-loadmore-edit">edit</a>,
+                    <a key="list-loadmore-more">more</a>,
+                  ]}
+                >
                   <List.Item.Meta
-                    title={
-                      <a href={<Navigate to={'/group1'} />}>{item.title}</a>
+                    avatar={
+                      <Avatar
+                        src={`https://xsgames.co/randomusers/avatar.php?g=pixel&key=${index}`}
+                      />
                     }
-                    description="Ant Design, a design language for background applications, is refined by Ant UED Team"
+                    title={<a href="https://ant.design">{item.title}</a>}
+                    description="помогите"
                   />
                 </List.Item>
               )}
@@ -96,4 +114,4 @@ const GroupsPage = () => {
   )
 }
 
-export default GroupsPage
+export default Group1

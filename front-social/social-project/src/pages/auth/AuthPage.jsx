@@ -3,19 +3,23 @@ import { Form, Input, Button, Typography } from 'antd'
 import { useNavigate } from 'react-router-dom'
 import { notification } from 'antd'
 import { useState } from 'react'
-import {CheckCircleTwoTone} from '@ant-design/icons'
+import { CheckCircleTwoTone } from '@ant-design/icons'
 
 const AuthPage = () => {
   const navigate = useNavigate()
   const [api, contextHolder] = notification.useNotification()
-  const [name, setName] = useState('');
+  const [name, setName] = useState('')
 
   const openNotification = (placement) => {
     api.info({
       message: 'Успешно!',
       icon: <CheckCircleTwoTone twoToneColor="#52c41a" />,
-      description:
-        <span>Добро пожаловать в систему <span style={{color: 'red'}}>{name}</span></span>,
+      description: (
+        <span>
+          Добро пожаловать в систему{' '}
+          <span style={{ color: 'red' }}>{name}</span>
+        </span>
+      ),
       placement,
     })
   }
@@ -23,7 +27,7 @@ const AuthPage = () => {
   const onClickAuth = () => {
     openNotification('top')
     setTimeout(() => {
-        // navigate('/')
+      navigate('/groups')
     }, 1000)
   }
 
@@ -37,12 +41,18 @@ const AuthPage = () => {
           </div>
           <Form>
             <Form.Item>
-              <Input placeholder='Логин' value={name} onChange={(e) => {setName(e.target.value)}} />
+              <Input
+                placeholder="Логин"
+                value={name}
+                onChange={(e) => {
+                  setName(e.target.value)
+                }}
+              />
             </Form.Item>
             <Form.Item>
-              <Input.Password placeholder='Пароль' />
+              <Input.Password placeholder="Пароль" />
             </Form.Item>
-            <Form.Item >
+            <Form.Item>
               <Button htmlType="submit" type="primary" onClick={onClickAuth}>
                 Авторизоваться
               </Button>
