@@ -5,7 +5,7 @@ import 'normalize.css'
 import AuthPage from './pages/auth/AuthPage'
 import Main from './pages/main/Main'
 import GroupsPage from './pages/groups/GroupsPage'
-import Group1 from './pages/groups/list/Group1'
+import Group1 from './pages/list/Group1'
 
 function App() {
   return (
