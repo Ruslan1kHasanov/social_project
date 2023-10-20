@@ -1,18 +1,32 @@
-import { useState } from 'react'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import './App.css';
-import 'normalize.css';
-import AuthPage from './pages/auth/AuthPage';
+import { BrowserRouter, Routes, Route, useRoutes, Navigate } from 'react-router-dom'
+import './App.css'
+import 'normalize.css'
+import AuthPage from './pages/auth/AuthPage'
+import Layout from './pages/LayOut'
 
 function App() {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={'main'} />
-        <Route path="/auth" element={<AuthPage />} />
-      </Routes>
-    </BrowserRouter>
-  )
+  const routes = useRoutes([
+    {
+      path: '/auth',
+      element: <Navigate to={'/auth'} />,
+    },
+    {
+      path: '/auth',
+      element: <AuthPage />,
+    },
+    {
+      path: '/dashboard/*',
+      element: <Layout />,
+      children: [
+        {
+          path: 'groups',
+          element: <>asd</>,
+        },
+      ],
+    },
+  ])
+
+  return routes
 }
 
 export default App
