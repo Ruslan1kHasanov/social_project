@@ -32,23 +32,23 @@ const { Header, Content, Footer, Sider } = Layout
 
 const data = [
   {
-    title: '-5 очков СР',
+    title: <span className="decrement">-5 очков СР</span>,
     description: 'Опоздание более чем на 15 минут',
   },
   {
-    title: '+50 очков СР',
+    title: <span className="increment">+50 очков СР</span>,
     description: 'Участие в олимпиаде',
   },
   {
-    title: '-10 очков СР',
+    title: <span className="decrement">-10 очков СР</span>,
     description: 'Отсутствие на паре',
   },
   {
-    title: '+30 очков СР',
+    title: <span className="increment">+30 очков СР</span>,
     description: 'Своевременная сдача дз',
   },
   {
-    title: '+50 очков СР',
+    title: <span className="increment">+50 очков СР</span>,
     description: 'Посещение мероприятия',
   },
 ]
@@ -148,7 +148,7 @@ const User = () => {
                 renderItem={(item, index) => (
                   <List.Item>
                     <List.Item.Meta
-                      title={<a href="https://ant.design">{item.title}</a>}
+                      title={<p>{item.title}</p>}
                       description={<p>{item.description}</p>}
                     />
                   </List.Item>
