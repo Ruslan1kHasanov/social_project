@@ -1,0 +1,70 @@
+.logo {
+  color: white;
+  line-height: 30px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.user-icon {
+  border-radius: 50px;
+  vertical-align: middle;
+  //   background: white;
+  background-image: url('../../assets/user.png');
+  height: 40px;
+  width: 40px;
+  display: flex;
+}
+
+.content {
+  gap: 30px;
+  margin: 40px;
+}
+
+.avatar {
+  height: 150px;
+  width: 150px;
+}
+
+.description-user {
+  font-size: 18px;
+}
+
+.full-name {
+  font-size: 32px;
+}
+
+.cards {
+  display: flex;
+  margin: 40px;
+  gap: 30px;
+}
+
+.history {
+  font-size: 30px;
+  padding-bottom: 30px;
+}
+
+.name {
+  font-size: 24px;
+}
+
+.card-1 {
+}
+
+.span-1 {
+  // text-align: left;
+  font-size: 16px;
+}
+
+.card-2 {
+  margin: 40px;
+}
+
+.span-2 {
+  font-size: 16px;
+  margin: 30px;
+}

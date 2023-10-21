@@ -6,6 +6,7 @@ import AuthPage from './pages/auth/AuthPage'
 import Main from './pages/main/Main'
 import GroupsPage from './pages/groups/GroupsPage'
 import Group1 from './pages/list/Group1'
+import User from './pages/user/User'
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/auth" element={<AuthPage />} />
         <Route path="/groups" element={<GroupsPage />} />
         <Route path="/group1" element={<Group1 />} />
+        <Route path="/user" element={<User />} />
       </Routes>
     </BrowserRouter>
   )
