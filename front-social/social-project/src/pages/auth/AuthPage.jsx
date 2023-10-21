@@ -17,7 +17,7 @@ const AuthPage = () => {
       description: (
         <span>
           Добро пожаловать в систему{' '}
-          <span style={{ color: 'red' }}>{name}</span>
+          <b>{name}</b>
         </span>
       ),
       placement,

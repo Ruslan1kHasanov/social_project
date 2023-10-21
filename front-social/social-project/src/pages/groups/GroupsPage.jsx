@@ -1,19 +1,9 @@
 import React from 'react'
 import './index.scss'
-import {
-  AppstoreOutlined,
-  BarChartOutlined,
-  CloudOutlined,
-  ShopOutlined,
-  TeamOutlined,
-  UploadOutlined,
-  UserOutlined,
-  VideoCameraOutlined,
-} from '@ant-design/icons'
-import { useNavigate } from 'react-router-dom'
 import { Navigate } from 'react-router-dom'
-import { Layout, Menu, theme } from 'antd'
-import { Avatar, List } from 'antd'
+import { Layout, Menu } from 'antd'
+import { List, Card } from 'antd'
+import { items } from '../../shared/sideBarRouting'
 
 const { Header, Content, Footer, Sider } = Layout
 
@@ -32,21 +22,6 @@ const data = [
   },
 ]
 
-const items = [
-  UserOutlined,
-  VideoCameraOutlined,
-  UploadOutlined,
-  BarChartOutlined,
-  CloudOutlined,
-  AppstoreOutlined,
-  TeamOutlined,
-  ShopOutlined,
-].map((icon, index) => ({
-  key: String(index + 1),
-  icon: React.createElement(icon),
-  label: `nav ${index + 1}`,
-}))
-
 const GroupsPage = () => {
   return (
     <>
@@ -60,6 +35,7 @@ const GroupsPage = () => {
             style={{
               overflow: 'auto',
               height: 'calc(100vh - 64px)',
+              width: '300px',
               left: 0,
               top: 0,
               bottom: 0,
@@ -69,26 +45,28 @@ const GroupsPage = () => {
             <Menu
               theme="dark"
               mode="inline"
-              defaultSelectedKeys={['4']}
+              defaultSelectedKeys={['2']}
               items={items}
             />
           </Sider>
           <Content className="content">
-            <List
-              className="list"
-              itemLayout="horizontal"
-              dataSource={data}
-              renderItem={(item, index) => (
-                <List.Item>
-                  <List.Item.Meta
-                    title={
-                      <a href={<Navigate to={'/group1'} />}>{item.title}</a>
-                    }
-                    description="Ant Design, a design language for background applications, is refined by Ant UED Team"
-                  />
-                </List.Item>
-              )}
-            />
+            <Card>
+              <List
+                className="list"
+                itemLayout="horizontal"
+                dataSource={data}
+                renderItem={(item, index) => (
+                  <List.Item>
+                    <List.Item.Meta
+                      title={
+                        <a href={<Navigate to={'/group1'} />}>{item.title}</a>
+                      }
+                      description="Ant Design, a design language for background applications, is refined by Ant UED Team"
+                    />
+                  </List.Item>
+                )}
+              />
+            </Card>
           </Content>
         </Layout>
       </Layout>
