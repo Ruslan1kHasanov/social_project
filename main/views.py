@@ -1,13 +1,13 @@
 from django.shortcuts import render
 from rest_framework import generics
-from .models import Groups
+from .models import Group
 from .serializers import GroupsSerializers
 
 
 # Create your views here.
 
 class GroupsApi(generics.ListAPIView):
-    queryset = Groups.objects.all()
+    queryset = Group.objects.all()
     serializer_class = GroupsSerializers
 
 

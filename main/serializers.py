@@ -1,9 +1,9 @@
 from rest_framework import serializers
 
-from .models import Groups
+from .models import Group
 
 
 class GroupsSerializers(serializers.ModelSerializer):
     class Meta:
-        model = Groups
+        model = Group
         fields = ('id', 'name', 'faculty', 'year')

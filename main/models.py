@@ -3,7 +3,7 @@ from django.db import models
 
 class Group(models.Model):
     name = models.CharField(max_length=100, null=False, unique=True)
-    year = models.PositiveSmallIntegerField('year', max_length=6, null=False)
+    year = models.PositiveSmallIntegerField('year', null=False)
     faculty = models.ForeignKey('Facultie', on_delete=models.PROTECT, null=False)
 
     def __str__(self):
@@ -20,12 +20,12 @@ class Facultie(models.Model):
 
 
 class HistoryOfRating(models.Model):
-    SIGN_CHOICES = ["-", "+"]
+    SIGN_CHOICES = [("-", "MINUS"), ("+", "PLUS")]
 
     date_of_change = models.DateTimeField(null=False)
     description = models.TextField(null=True)
-    sign = models.CharField(max_length=1, choices=SIGN_CHOICES, null=False)
-    rating_value = models.PositiveSmallIntegerField(max_length=100, null=False)
+    sign = models.CharField(max_length=5, choices=SIGN_CHOICES, null=False)
+    rating_value = models.PositiveSmallIntegerField(null=False)
     id_student = models.ForeignKey('Student', on_delete=models.PROTECT, null=False)
 
     def __str__(self):
@@ -43,12 +43,12 @@ class Student(models.Model):
 
 
 class User(models.Model):
-    ROLE_CHOICES = ["admin", "teacher"]
+    ROLE_CHOICES = [("admin", "ADMIN"), ("teacher", "TEACHER")]
 
     name = models.CharField(max_length=100, null=False)
     email = models.EmailField(max_length=100, unique=True, null=False)
     password = models.CharField(max_length=256, null=False)
-    role = models.CharField(choices=ROLE_CHOICES, null=False)
+    role = models.CharField(choices=ROLE_CHOICES, max_length=7, null=False)
     about = models.TextField(null=True)
     groups = models.ManyToManyField(Group)
 
