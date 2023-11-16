@@ -15,9 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+
+from main.serializers import GroupsSerializers, ReasonsSerializer
 from main.views import GroupsApi
 
 urlpatterns = [
+    path('api/reasons', ReasonsSerializer.as_view()),
     path('api/groups', GroupsApi.as_view()),
     path('', include('main.urls')),
     path('admin/', admin.site.urls),

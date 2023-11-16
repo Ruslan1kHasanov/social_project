@@ -20,12 +20,13 @@ class Facultie(models.Model):
 
 
 class HistoryOfRating(models.Model):
-    SIGN_CHOICES = [("-", "MINUS"), ("+", "PLUS")]
+    REASON_CHOICES = [("late", "Опоздал(а) на пару"), ("help", "Помог(а) преподавателю"),
+                      ("foo", "Бесплатно стал(а) волонтером"), ("lsa", "Платно стал(а) волонтером"),
+                      ("cat", "Помог(ла) котёнку"), ("dog", "Помог(ла) собаке")]
 
     date_of_change = models.DateTimeField(null=False)
-    description = models.TextField(null=True)
-    sign = models.CharField(max_length=5, choices=SIGN_CHOICES, null=False)
-    rating_value = models.PositiveSmallIntegerField(null=False)
+    reason = models.TextField(choices=REASON_CHOICES, null=False)
+    rating_value = models.IntegerField(null=False)
     id_student = models.ForeignKey('Student', on_delete=models.PROTECT, null=False)
 
     def __str__(self):
