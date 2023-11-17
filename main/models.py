@@ -20,17 +20,13 @@ class Facultie(models.Model):
 
 
 class HistoryOfRating(models.Model):
-    REASON_CHOICES = [("late", "Опоздал(а) на пару"), ("help", "Помог(а) преподавателю"),
-                      ("foo", "Бесплатно стал(а) волонтером"), ("lsa", "Платно стал(а) волонтером"),
-                      ("cat", "Помог(ла) котёнку"), ("dog", "Помог(ла) собаке")]
-
-    date_of_change = models.DateTimeField(null=False)
-    reason = models.TextField(choices=REASON_CHOICES, null=False)
+    date_of_change = models.DateTimeField(auto_now_add=True)
+    reason = models.TextField(null=False)
     rating_value = models.IntegerField(null=False)
     id_student = models.ForeignKey('Student', on_delete=models.PROTECT, null=False)
 
     def __str__(self):
-        return self.rating_value
+        return self.reason
 
 
 class Student(models.Model):
@@ -38,6 +34,7 @@ class Student(models.Model):
     email = models.EmailField(max_length=100, unique=True, null=False)
     rating = models.IntegerField(null=False)
     description = models.TextField(null=True)
+    group = models.ForeignKey('Group', on_delete=models.PROTECT, null=False)
 
     def __str__(self):
         return self.name
