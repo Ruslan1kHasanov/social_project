@@ -25,8 +25,28 @@ class GroupsSerializers(serializers.ModelSerializer):
 
 
 class ReasonsSerializer(APIView):
-    REASONS = {'reasons': [{'reason': 'Chti', 'rating': -10}, {'reason': 'Chti', 'rating': -10},
-                           {'reason': 'Chti', 'rating': -10}]}
+    REASONS = {'reasons': [{'reason': 'Пользование мобильным устройством во время пары', 'rating': '-20'},
+                           {'reason': 'Опоздание более чем на 0 милисекунд', 'rating': '-50'},
+                           {'reason': 'Недостаточная вежливость по отношению к преподавателю и студентам',
+                            'rating': '-10'},
+                           {'reason': 'Невнимательное поведение на лекции', 'rating': '-20'},
+                           {'reason': 'Некрасивый почерк у доски', 'rating': '-10'},
+                           {'reason': 'Недостаточная активность на семинаре или практике', 'rating': '-30'},
+                           {'reason': 'Плохое настроение', 'rating': '-5'},
+                           {'reason': 'Оскорбление администрации', 'rating': '-100'},
+                           {'reason': 'Немытая голова', 'rating': '-10'},
+                           {'reason': 'Задержка в сдаче дз', 'rating': '-50'},
+
+                           {'reason': 'Хорошие взаимоотношения с администратором', 'rating': '+100'},
+                           {'reason': 'Своевременное выполнение дз', 'rating': '+10'},
+                           {'reason': 'Активное поведение на семинаре', 'rating': '+20'},
+                           {'reason': 'Подарок преподавателю', 'rating': '+50'},
+                           {'reason': 'Участие в мероприятии', 'rating': '+30'},
+                           {'reason': 'Ответ у доски', 'rating': '+5'},
+                           {'reason': 'Отсутствие пропусков за месяц', 'rating': '+10'},
+                           {'reason': 'Участие в олимпиаде', 'rating': '+20'},
+                           {'reason': 'Отсутствие долгов на протяжении года', 'rating': '+50'},
+                           {'reason': 'Отсутствие опозданий за неделю', 'rating': '+5'}]}
 
     def get(self, request):
         return Response(self.REASONS)

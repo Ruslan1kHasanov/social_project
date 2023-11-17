@@ -5,7 +5,7 @@ document.body.onload = () => {
     const auth_btn = document.querySelector('#auth_btn');
 
     auth_btn.onclick = () => {
-        const response = fetch('http://127.0.0.1:8000/api/auth/token/login/', {
+        const response = fetch('http://26.83.222.115:8080/api/auth/token/login/', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -18,7 +18,7 @@ document.body.onload = () => {
         }).then((res) => res.json()).then((response) => {
             sessionStorage.setItem('token', `Token ${response.auth_token}`);
             if (response.auth_token) {
-                window.location.replace('http://127.0.0.1:8000/');
+                window.location.replace('http://26.83.222.115:8080/');
             }
         });
     }

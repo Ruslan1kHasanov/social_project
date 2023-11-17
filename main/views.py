@@ -9,13 +9,13 @@ from .serializers import GroupsSerializers, FacultiesSerializers
 class GroupsApi(generics.ListAPIView):
     queryset = Group.objects.all()
     serializer_class = GroupsSerializers
-    permission_classes = [permissions.IsAuthenticated]
+    # permission_classes = [permissions.IsAuthenticated]
 
 
 class FacultyApi(generics.ListAPIView):
     queryset = Facultie.objects.all()
     serializer_class = FacultiesSerializers
-    permission_classes = [permissions.IsAuthenticated]
+    # permission_classes = [permissions.IsAuthenticated]
 
 
 def index(request):
