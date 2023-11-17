@@ -3,7 +3,7 @@ from rest_framework.renderers import JSONRenderer
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from .models import Group, Facultie
+from .models import Group, Facultie, Student, HistoryOfRating
 
 
 class FacultiesSerializers(serializers.ModelSerializer):
@@ -22,6 +22,17 @@ class GroupsSerializers(serializers.ModelSerializer):
         faculty_name = Group.faculty.name
         return faculty_name
 
+
+class StudentsSerializers(serializers.ModelSerializer):
+    class Meta:
+        model = Student
+        fields = ('id', 'name', 'email', 'rating', 'description')
+
+
+class HistoryOfRatingSerializers(serializers.ModelSerializer):
+    class Meta:
+        model = HistoryOfRating
+        fields = ('date_of_change', 'reason', 'rating_value', 'id_student')
 
 
 class ReasonsSerializer(APIView):
