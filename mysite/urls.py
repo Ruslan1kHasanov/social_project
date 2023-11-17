@@ -17,11 +17,12 @@ from django.contrib import admin
 from django.urls import path, include
 
 from main.serializers import GroupsSerializers, ReasonsSerializer
-from main.views import GroupsApi
+from main.views import GroupsApi, FacultyApi
 
 urlpatterns = [
     path('api/reasons', ReasonsSerializer.as_view()),
     path('api/groups', GroupsApi.as_view()),
+    path('api/faculties', FacultyApi.as_view()),
     path('', include('main.urls')),
     path('admin/', admin.site.urls),
     # path('api/auth/', include('rest_framework.urls')),

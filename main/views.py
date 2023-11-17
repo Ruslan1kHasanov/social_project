@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework import generics, permissions
-from .models import Group
-from .serializers import GroupsSerializers
+from .models import Group, Facultie
+from .serializers import GroupsSerializers, FacultiesSerializers
 
 
 # Create your views here.
@@ -9,6 +9,12 @@ from .serializers import GroupsSerializers
 class GroupsApi(generics.ListAPIView):
     queryset = Group.objects.all()
     serializer_class = GroupsSerializers
+    permission_classes = [permissions.IsAuthenticated]
+
+
+class FacultyApi(generics.ListAPIView):
+    queryset = Facultie.objects.all()
+    serializer_class = FacultiesSerializers
     permission_classes = [permissions.IsAuthenticated]
 
 
