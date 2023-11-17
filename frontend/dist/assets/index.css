@@ -1,0 +1,241 @@
+/* Copyright 2023 The MediaPipe Authors.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License. */
+
+/* Copyright 2022 The MediaPipe Authors.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License. */
+
+@use "@material";
+body {
+    font-family: -apple-system, BlinkMacSystemFont,'Segoe UI', Roboto,'Helvetica Neue',Arial,'Noto Sans',sans-serif;
+    margin: 2em;
+    --mdc-theme-primary: #007f8b;
+    --mdc-theme-on-primary: #f1f3f4;
+    margin: 0;
+    padding: 0;
+}
+
+.auth_wrapper{
+    display: grid;
+    gap: 50px;
+}
+
+.is_smiling {
+    color: black;
+    font-size: 50px;
+    color: white;
+}
+
+.smile_request {
+    text-align: center;
+    justify-self: center;
+    min-height: 100px;
+    /* font-size: calc(16px + 8 * ((100vw - 320px) / 1920)); */
+}
+
+h2 {
+    clear: both;
+}
+
+.form {
+    color: white;
+    width: fit-content;
+    padding: 40px;
+    gap: 7px;
+    border-radius: 5px;
+    background-color: #37405d;
+    display: grid;
+    justify-self: center;
+    align-self: center;
+}
+
+.form h2 {
+    margin: 0;
+}
+
+.form__heading {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    gap: 10px;
+    padding: 0 0 10px;
+}
+
+.form__input {
+    border-radius: 5px;
+    min-height: 35px;
+    border: none;
+    padding: 0 10px ;
+    outline: none;
+}
+
+.form__btn {
+    border-radius: 5px;
+    outline: 0;
+    border: 1px solid rgb(175, 193, 208);;
+    background-color: white;
+    box-shadow: 0 2px 0 rgba(5,145,255,.1);
+    min-height: 35px;
+    transition-duration: 0.2s;
+    cursor: pointer;
+}
+
+.form__btn:disabled, .form__btn:disabled:hover{
+    border-color: rgb(129, 129, 129);
+    color: #535353;
+    background-color: #c3c3c3;
+}
+
+.form__btn:hover {
+    border-color: rgb(1, 43, 184);
+    color: rgb(1, 43, 184);
+    background-color: #dfdfdf;
+}
+
+.form__input:hover {
+    background-color: #dfdfdf;
+}
+
+.form__btn:active {
+    border-color: #37405d;
+    color: #37405d;
+    box-shadow: 0px 0px 0px 4px rgba(0, 2, 4, 0.2);
+}
+
+.form__input:focus{
+    box-shadow: 0px 0px 0px 4px rgba(0, 2, 4, 0.2);
+    background-color: #dfdfdf;
+}
+
+em {
+    font-weight: bold;
+}
+
+video {
+    clear: both;
+    display: block;
+    transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+}
+
+section {
+    opacity: 1;
+    transition: opacity 500ms ease-in-out;
+}
+
+header,
+footer {
+    clear: both;
+}
+
+.removed {
+    display: none;
+}
+
+.invisible {
+    opacity: 0.2;
+}
+
+.note {
+    font-style: italic;
+    font-size: 130%;
+}
+
+.videoView,
+.detectOnClick,
+.blend-shapes {
+    position: relative;
+    float: left;
+    width: 48%;
+    margin: 2% 1%;
+    cursor: pointer;
+}
+
+.videoView p,
+.detectOnClick p {
+    position: absolute;
+    padding: 5px;
+    background-color: #007f8b;
+    color: #fff;
+    border: 1px dashed rgba(255, 255, 255, 0.7);
+    z-index: 2;
+    font-size: 12px;
+    margin: 0;
+}
+
+.highlighter {
+    background: rgba(0, 255, 0, 0.25);
+    border: 1px dashed #fff;
+    z-index: 1;
+    position: absolute;
+}
+
+.canvas {
+    z-index: 1;
+    position: absolute;
+    pointer-events: none;
+}
+
+.output_canvas {
+    transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+}
+
+.detectOnClick {
+    z-index: 0;
+}
+
+.detectOnClick img {
+    width: 100%;
+}
+
+.blend-shapes-item {
+    display: flex;
+    align-items: center;
+    height: 20px;
+}
+
+.blend-shapes-label {
+    display: flex;
+    width: 120px;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 4px;
+}
+
+.blend-shapes-value {
+    display: flex;
+    height: 16px;
+    align-items: center;
+    background-color: #007f8b;
+}
+
+@media (max-width: 550px) {
+    .form__heading {
+        display: grid;
+    }
+    
+}

@@ -11,7 +11,12 @@ class GroupsApi(generics.ListAPIView):
     serializer_class = GroupsSerializers
     permission_classes = [permissions.IsAuthenticated]
 
+
 def index(request):
     context = {}
     return render(request, 'index.html')
 
+
+def auth(request):
+    context = {}
+    return render(request, 'auth.html')
