@@ -16,7 +16,6 @@ document.body.onload = () => {
                 password: form_input_password.value
             }),
         }).then((res) => res.json()).then((response) => {
-        console.log('asd')
             sessionStorage.setItem('token', `Token ${response.auth_token}`);
             if (response.auth_token) {
                 window.location.replace('http://127.0.0.1:8000/');
