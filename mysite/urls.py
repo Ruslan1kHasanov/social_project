@@ -22,10 +22,10 @@ from main.views import GroupsApi, FacultyApi, StudentsApi, HistoryOfRatingApi, C
 urlpatterns = [
     path('api/reasons', ReasonsSerializer.as_view()),
     path('api/groups', GroupsApi.as_view()),
-    path('api/groups/<int:fk>', StudentsApi.as_view()),
+    path('api/groups/<int:group_id>', StudentsApi.as_view()),
     path('api/faculties', FacultyApi.as_view()),
-    path('api/student/<int:fk>/history', HistoryOfRatingApi.as_view()),
-    path('api/student/<int:pk>/change', CreateHistoryOfRatingApi.as_view()),
+    path('api/students/<int:id_student>/history', HistoryOfRatingApi.as_view()),
+    path('api/students/<int:id_student>/add', CreateHistoryOfRatingApi.as_view()),
     path('', include('main.urls')),
     path('admin/', admin.site.urls),
     # path('api/auth/', include('rest_framework.urls')),
