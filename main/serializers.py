@@ -26,13 +26,22 @@ class GroupsSerializers(serializers.ModelSerializer):
 class StudentsSerializers(serializers.ModelSerializer):
     class Meta:
         model = Student
-        fields = ('id', 'name', 'email', 'rating', 'description')
+        fields = ('id', 'name', 'email', 'rating', 'description', 'group')
 
+
+# class HistoryOfRatingSerializers(serializers.ModelSerializer):
+#     class Meta:
+#         model = HistoryOfRating
+#         fields = ('date_of_change', 'reason', 'rating_value', 'id_student')
 
 class HistoryOfRatingSerializers(serializers.ModelSerializer):
     class Meta:
         model = HistoryOfRating
         fields = ('date_of_change', 'reason', 'rating_value', 'id_student')
+
+    def update(self, instance, validated_data):
+        instance.rating_value = validated_data.get('rating_value', instance.rating_value)
+        return instance
 
 
 class ReasonsSerializer(APIView):
