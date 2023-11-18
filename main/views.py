@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from rest_framework import generics, permissions, filters
 from .models import Group, Facultie, Student, HistoryOfRating
-from .serializers import GroupsSerializers, FacultiesSerializers, StudentsSerializers, HistoryOfRatingSerializers
+from .serializers import GroupsSerializers, FacultiesSerializers, StudentsSerializers, HistoryOfRatingSerializers, \
+    StudentProfileSerializers
 
 
 # Create your views here.
@@ -11,13 +12,13 @@ class GroupsApi(generics.ListAPIView):
     serializer_class = GroupsSerializers
     permission_classes = [permissions.IsAuthenticated]
 
-    def get_queryset(self):
-        pk = self.kwargs.get("pk")
-
-        if not pk:
-            return Group.objects.all()
-
-        return Group.objects.filter(pk=pk)
+    # def get_queryset(self):
+    #     pk = self.kwargs.get("pk")
+    #
+    #     if not pk:
+    #         return Group.objects.all()
+    #
+    #     return Group.objects.filter(pk=pk)
 
 class FacultyApi(generics.ListAPIView):
     queryset = Facultie.objects.all()
@@ -26,7 +27,7 @@ class FacultyApi(generics.ListAPIView):
 
 
 
-class StudentsApi(generics.ListAPIView):
+class StudentsGroupApi(generics.ListAPIView):
     queryset = Student.objects.all()
     serializer_class = StudentsSerializers
     permission_classes = [permissions.IsAuthenticated]
@@ -39,6 +40,19 @@ class StudentsApi(generics.ListAPIView):
 
         return Student.objects.filter(group_id=group_id)
 
+
+class StudentsApi(generics.ListAPIView):
+    queryset = Student.objects.all()
+    serializer_class = StudentProfileSerializers
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get_queryset(self):
+        pk = self.kwargs.get("pk")
+
+        if not pk:
+            return Student.objects.all()
+
+        return Student.objects.filter(pk=pk)
 
 class HistoryOfRatingApi(generics.ListAPIView):
     queryset = HistoryOfRating.objects.all()
