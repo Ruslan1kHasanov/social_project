@@ -28,6 +28,16 @@ class StudentsSerializers(serializers.ModelSerializer):
         model = Student
         fields = ('id', 'name', 'email', 'rating', 'description', 'group')
 
+class StudentProfileSerializers(serializers.ModelSerializer):
+    group_name = serializers.SerializerMethodField('get_group_name')
+    class Meta:
+        model = Student
+        fields = ('id', 'name', 'email', 'rating', 'description', 'group_name')
+
+    def get_group_name(self, Student):
+        group_name = Student.group.name
+        return group_name
+
 
 # class HistoryOfRatingSerializers(serializers.ModelSerializer):
 #     class Meta:

@@ -17,14 +17,16 @@ from django.contrib import admin
 from django.urls import path, include
 
 from main.serializers import GroupsSerializers, ReasonsSerializer
-from main.views import GroupsApi, FacultyApi, StudentsApi, HistoryOfRatingApi, CreateHistoryOfRatingApi
+from main.views import GroupsApi, FacultyApi, StudentsGroupApi, HistoryOfRatingApi, CreateHistoryOfRatingApi, \
+    StudentsApi
 
 urlpatterns = [
     path('api/reasons', ReasonsSerializer.as_view()),
     path('api/groups', GroupsApi.as_view()),
-    path('api/groups/<int:group_id>', StudentsApi.as_view()),
+    path('api/groups/<int:group_id>', StudentsGroupApi.as_view()),
     path('api/faculties', FacultyApi.as_view()),
     path('api/students/<int:id_student>/history', HistoryOfRatingApi.as_view()),
+    path('api/students/<int:pk>', StudentsApi.as_view()),
     path('api/students/<int:id_student>/add', CreateHistoryOfRatingApi.as_view()),
     path('', include('main.urls')),
     path('admin/', admin.site.urls),
